@@ -1,6 +1,10 @@
+import json
+
 import nonebot
 import shlex
 import traceback
+
+from aiohttp import ClientSession
 from nonebot import on_command
 from nonebot.log import logger
 from nonebot.matcher import Matcher
@@ -34,6 +38,20 @@ __plugin_meta__ = PluginMetadata(
     },
 )
 
+from nonebot import require
+
+scheduler = require("nonebot_plugin_apscheduler").scheduler
+
+
+@scheduler.scheduled_job("cron", minute="*/30", id="va")
+async def run_every_30():
+    print("heart")
+    url1 = "http://bot.gekj.net/api/v1/online.bot"
+    header = {"uuid": "ac023a3b-f1cc-4c12-af71-29c3a23cee17"}
+    async with ClientSession() as session:
+        async with session.post(url1, headers=header) as response:
+            ret1 = json.loads(await response.text())
+
 
 def create_matchers():
     def create_handler(command: Command) -> T_Handler:
@@ -60,7 +78,10 @@ def create_matchers():
                 await matcher.finish("出错了，请稍后再试")
             if command.keywords == ("5000choyen", "5000兆"):
                 tu = base64.b64decode(image)
-                im2 = await Bot.upload_file(bot, ("image.jpg", tu, "image/jpeg"))
+                im2 = await Bot.upload_file(bot, ("image.png", tu, "image/jpeg"))
+                await matcher.finish(MessageSegment.image(im2))
+            elif command.keywords == ("douyin", "dylogo"):
+                im2 = await Bot.upload_file(bot, ( "image.gif", image, "image/gif"))
                 await matcher.finish(MessageSegment.image(im2))
             else:
                 im2 = await Bot.upload_file(bot, ("image.png", image, "image/jpeg"))

@@ -13,7 +13,7 @@ nonebot2 = "^2.0.0-beta.1"
 nb-cli = "^0.6.0"
 
 [tool.nonebot]
-plugins = ["nonebot_plugin_htmlrender", "nonebot_plugin_manager", "nonebot_plugin_logo"]
+plugins = ["nonebot_plugin_htmlrender", "nonebot_plugin_manager", "nonebot_plugin_logo", "nonebot_plugin_apscheduler"]
 plugin_dirs = ["cuterobot/plugins"]
 
 [build-system]

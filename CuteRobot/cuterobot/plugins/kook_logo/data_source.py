@@ -55,7 +55,7 @@ async def make_5000choyen(texts: List[str]) -> str:
     return str(img).replace("data:image/png;base64,", "")
 
 
-async def make_douyin(texts: List[str]) -> BytesIO:
+async def make_douyin(texts: List[str]) -> bytes:
     template = env.get_template("douyin.html")
     html = await template.render_async(text=texts[0], frame_num=10)
 
@@ -72,7 +72,7 @@ async def make_douyin(texts: List[str]) -> BytesIO:
 
     output = BytesIO()
     imageio.mimsave(output, imgs, format="gif", duration=0.2)
-    return output
+    return output.getvalue()
 
 
 async def make_google(texts: List[str]) -> bytes:
