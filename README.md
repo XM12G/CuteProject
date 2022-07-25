@@ -9,4 +9,4 @@
 [nonebot-adapter-kaiheila](https://github.com/Tian-que/nonebot-adapter-kaiheila)
 
 ### 移植/改编的开源项目
-[boneBot-plugin-logo](https://github.com/noneplugin/nonebot-plugin-logo)
+[nonebot-plugin-logo](https://github.com/noneplugin/nonebot-plugin-logo)
