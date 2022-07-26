@@ -12,7 +12,9 @@ from nonebot.typing import T_Handler
 from nonebot.params import CommandArg, BotParam
 from nonebot.plugin import PluginMetadata
 from nonebot.adapters.kaiheila.message import MessageSegment, Message
+from nonebot.params import Depends
 from nonebot.adapters.kaiheila.bot import *
+from nonebot.adapters.kaiheila.event import *
 
 import os
 import base64
@@ -81,7 +83,7 @@ def create_matchers():
                 im2 = await Bot.upload_file(bot, ("image.png", tu, "image/jpeg"))
                 await matcher.finish(MessageSegment.image(im2))
             elif command.keywords == ("douyin", "dylogo"):
-                im2 = await Bot.upload_file(bot, ( "image.gif", image, "image/gif"))
+                im2 = await Bot.upload_file(bot, ("image.gif", image, "image/gif"))
                 await matcher.finish(MessageSegment.image(im2))
             else:
                 im2 = await Bot.upload_file(bot, ("image.png", image, "image/jpeg"))
