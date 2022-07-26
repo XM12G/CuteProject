@@ -10,3 +10,5 @@
 
 ### 移植/改编的开源项目
 [nonebot-plugin-logo](https://github.com/noneplugin/nonebot-plugin-logo)
+
+[nonebot-plugin-memes](https://github.com/noneplugin/nonebot-plugin-memes)
