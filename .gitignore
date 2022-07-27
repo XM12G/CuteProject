@@ -1,0 +1,8 @@
+CuteRobot/.env.dev
+CuteRobot/.env
+CuteRobot/.env.prod
+
+
+CuteRobot/build
+CuteRobot/dist
+CuteRobot/bot.spec

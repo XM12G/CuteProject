@@ -47,6 +47,7 @@ scheduler = require("nonebot_plugin_apscheduler").scheduler
 
 @scheduler.scheduled_job("cron", minute="*/30", id="va")
 async def run_every_30():
+
     print("heart")
     url1 = "http://bot.gekj.net/api/v1/online.bot"
     header = {"uuid": "ac023a3b-f1cc-4c12-af71-29c3a23cee17"}
