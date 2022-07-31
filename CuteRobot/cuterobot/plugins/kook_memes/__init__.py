@@ -27,16 +27,12 @@ __plugin_meta__ = PluginMetadata(
 )
 
 
-help_cmd = on_command("表情包制作", block=True, priority=12)
+help_cmd = on_command("帮助", block=True, priority=12)
 
 
 @help_cmd.handle()
 async def _(bot : Bot = BotParam()):
-    img = await help_image(memes)
-    if img:
-        t = await bot.upload_file(("image.png",img,"image/jpeg"))
-        print(img)
-        await help_cmd.finish(MessageSegment.image(t))
+    await help_cmd.finish("请在帮助文档中查看详细使用说明！（文档链接可在机器人简介或botmarket发布页获取）")
 
 
 def create_matchers():
